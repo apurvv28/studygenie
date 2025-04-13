@@ -1,0 +1,400 @@
+/* General Styling */
+:root {
+  --primary-color: #2196f3;
+  --secondary-color: #1976d2;
+  --background-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --transition-speed: 0.3s;
+  --header-height: 64px;
+  --sidebar-width: 250px;
+}
+body {
+  background-color: var(--background-dark);
+  color: #d1d1d1;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-light);
+  overflow: hidden;
+}
+
+.main-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80vw;
+  max-height: 100vh;
+  padding: 20px;
+  color: var(--text-light);
+  overflow: hidden;
+}
+.mic-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.2s ease-in-out;
+}
+
+.mic-button:hover {
+  color: #4caf50; /* Green color on hover */
+}
+body::before{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("https://cdn-icons-png.flaticon.com/128/2068/2068998.png");
+  background-size: 52px 52px;
+  background-position: 0 0, 26px 26px, 52px 0, 0 52px, 52px 52px;
+  opacity: 0.3;
+  z-index: 0;
+  animation: floatingIcons 30s linear infinite;
+}
+@keyframes floatingIcons {
+  0% {
+    background-position: 0% 0%, 24px 24px, 48px 0, 0 48px, 48px 48px;
+  }
+  100% {
+    background-position: 100% 100%, 124px 124px, 148px 100px, 100px 148px, 148px 148px;
+  }
+}
+.main2 {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 1000px;
+  align-items: center;
+  justify-content: center;
+}
+
+.main4 {
+  padding: 20px;
+  text-align: center;
+  background-color: #007acc;
+  color: white;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Chat Messages */
+.bot-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-color: #121212 #333;
+  scrollbar-width: auto;
+}
+
+.loading-dots {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  color: #888;
+}
+
+.loading-dots span {
+  font-size: 18px;
+  animation: bounce 1.2s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Input Section */
+.nova-input-container {
+  border-top: 1px solid #444;
+  padding: 10px;
+  height: auto;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.text-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background-color: #3a3a4d;
+  color: #fff;
+  outline: none;
+}
+
+.text-input::placeholder {
+  color: #aaa;
+}
+
+.text-input:disabled {
+  background-color: #2a2a3e;
+  cursor: not-allowed;
+}
+
+.send-button {
+  padding: 10px;
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-button:hover {
+  background-color: #0063cc;
+}
+
+.send-button:disabled {
+  background-color: #2a2a3e;
+  cursor: not-allowed;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* File Upload */
+.file-upload-container {
+  margin-bottom: 20px;
+}
+.chat-message-container {
+  display: flex;
+  text-align: left;
+  gap:12px;
+  font-size: 18px;
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  position: relative;
+  margin: 10px;
+}
+
+.chat-message-bot {
+  background-color: #444;
+  font-size: 18px;
+}
+
+.chat-message-user {
+  background-color: #555;
+}
+
+.user-icon,
+.bot-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007acc;
+}
+p{
+  font-size: 16px;
+}
+.user-icon svg,
+.bot-icon svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.message-content {
+  flex-grow: 1;
+}
+
+.message-content .author {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.message-content .text {
+  white-space: pre-wrap;
+  color: #ddd;
+  font-size: 18px;
+}
+
+.speech-toggle-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px;
+  background-color: #555;
+  border-radius: 50%;
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.speech-toggle-button:hover {
+  background-color: #666;
+}
+
+.speech-toggle-button svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+/* File Upload Styles */
+.file-upload-container {
+  width: 93%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  padding: 1rem;
+  background-color: #1e1e2e; /* Dark background */
+  border: 2px dashed #4a5568; /* Gray dashed border */
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.file-upload-label:hover {
+  border-color: #007acc; /* Indigo hover border */
+  background-color: #2d2d3f; /* Slightly lighter hover background */
+}
+
+.file-upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff; /* White text */
+}
+
+.upload-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #007acc; /* Indigo icon */
+}
+
+.upload-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e5e7eb; /* Light gray text */
+}
+
+.upload-subtext {
+  font-size: 0.75rem;
+  color: #9ca3af; /* Subtle gray text */
+}
+
+.file-upload-input {
+  display: none; /* Hide the file input */
+}
+
+/* Style for table */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: #f4f4f4; 
+  display: table;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+  border-color: white;
+  border: solid;
+    border-width: 2px;/* Optional: background color */
+}
+
+/* Style for table cells */
+.table-container th, .table-container td {
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid white; 
+  border-collapse: collapse;/* Add white borders */
+}
+
+/* Optional: Style for table header */
+.table-container th {
+  background-color: #333; /* Optional: header background */
+  color: white;
+}
+
+/* Optional: Add hover effect on table rows */
+.table-container tr:hover {
+  background-color: #f1f1f1;
+}
+
+table{
+  display: table;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+  border-color: white;
+  border: solid;
+    border-width: 2px;
+}
+
+td{
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+th{
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.back-to-dashboard-icon {
+  position: absolute;
+  top: 20px; /* Adjust top distance */
+  left: 20px; /* Adjust right distance */
+  width: 40px; /* Adjust size */
+  height: 40px; /* Adjust size */
+  cursor: pointer;
+}
+.speech-rate-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.speech-rate-buttons button {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.speech-rate-buttons button:hover {
+  background-color: #218838;
+}

@@ -1,0 +1,524 @@
+:root {
+  --primary-color: #2196f3;
+  --secondary-color: #1976d2;
+  --background-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --transition-speed: 0.3s;
+  --header-height: 64px;
+  --sidebar-width: 250px;
+}
+
+.generate {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.generate:hover {
+  background-color: #0056b3;
+}
+.report-container{
+    min-height: 100vh;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+.report-container::before{
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("https://img.icons8.com/?size=80&id=Y2i6sbRv3j5X&format=png");
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px, 48px 0, 0 48px, 48px 48px;
+  opacity: 0.2;
+  z-index: 0;
+  animation: floatingIcons 30s linear infinite;
+}
+@keyframes floatingIcons {
+  0% {
+    background-position: 0% 0%, 24px 24px, 48px 0, 0 48px, 48px 48px;
+  }
+  100% {
+    background-position: 100% 100%, 124px 124px, 148px 100px, 100px 148px, 148px 148px;
+  }
+}
+
+.summary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 10px;
+  overflow: hidden;
+}
+/*.performance-summary{
+  background: linear-gradient(135deg, var(--background-dark) 0%, #2c3e50 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 800px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #464748;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}*/
+/* Box styling for each summary item */
+.performance-summary,
+.rehab-summary,
+.todo-summary,
+.goals-summary {
+  background: linear-gradient(135deg, var(--background-dark) 0%, #2c3e50 100%);/* Semi-transparent background */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 1000px;
+  height: 80px;
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  border: 2px solid #464748;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effects for the summary boxes */
+.performance-summary:hover,
+.rehab-summary:hover,
+.todo-summary:hover,
+.goals-summary:hover {
+  transform: scale(1.1); /* Slight scale-up effect */
+  box-shadow: 0 8px 15px rgba(0, 122, 204, 0.3); /* Add shadow effect */
+  background-color: rgba(51, 51, 51, 1); /* Darker background on hover */
+}
+
+/* Adding subtle animation for entering and leaving the view */
+.performance-summary,
+.rehab-summary,
+.todo-summary,
+.goals-summary {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.show-performance {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  width: 80%;
+}
+
+.show-performance:hover {
+  background-color: #0056b3;
+}
+
+.summary-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #333;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  background-color: #ff6b6b;
+  cursor: pointer;
+  outline: none;
+  transform: rotate(90deg);
+}
+
+.close::before,
+.close::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: currentColor;
+}
+
+.close::before {
+  transform: rotate(45deg);
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}
+
+.graph-container {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #333;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Ensure the button appears below the graph */
+}
+
+.graph-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.progress-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #333;
+}
+
+.progress-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.progress-container input {
+  width: 90%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.progress-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.progress-container button:hover {
+  background-color: #0056b3;
+}
+
+.todo-header {
+  color: #333333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Progress Bar Styling */
+.progress-bar {
+  height: 20px;
+  background-color: #4caf50;
+  transition: width 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.progress {
+  background: #4caf50;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.progress-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* To-Do List Items */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  color: #000;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.todo-text {
+  font-size: 16px;
+  color: #000;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Add New To-Do */
+.add-todo-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.todo-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4caf50;
+}
+
+.todo-text {
+  font-size: 16px;
+  color: #333333;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #888888;
+}
+
+.todo-input {
+  font-size: 16px;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.todo-input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.add-todo-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-todo-button:hover {
+  background: #388e3c;
+}
+
+.delete-btn {
+  padding: 8px 14px;
+  background-color: #ff5555;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+.rehab-container{
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.stress-results h3 {
+  margin: 20PX;
+  font-size: 24px;
+  font-weight: 500;
+  color: #FFF;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.stress-results h3 span {
+  font-weight: bold;
+  color: #FFF;
+}
+
+.stress-results h3:hover {
+  color: #007BFF; /* Change the color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  cursor: pointer;
+}
+
+.rehab-report-title{
+  font-size: 2rem;
+}
+.stress-message {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.stress-message.high {
+  color: red; /* Red for stress > 80% */
+}
+
+.stress-message.medium-high {
+  color: orange; /* Orange for stress between 60-80% */
+}
+
+.stress-message.moderate {
+  color: yellow; /* Yellow for stress between 40-60% */
+}
+
+.stress-message.low {
+  color: rgb(6, 192, 6); /* Green for stress between 20-40% */
+}
+
+.stress-message.chill {
+  color: rgb(6, 246, 122); /* Green for stress between 0-20% */
+}.retake-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff; /* Bootstrap blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.retake-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05);
+}

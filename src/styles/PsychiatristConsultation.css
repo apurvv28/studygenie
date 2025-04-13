@@ -1,0 +1,776 @@
+/* Base styles */
+.consultation-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #132543 0%, #000 100%);
+    color: #fff;
+    min-width: 1700px;
+  }
+  
+  .consultation-header {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .avatar-animation{
+    max-width: 270px;
+    max-height: 220px;
+  }
+
+  .doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .doctor-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .doctor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .doctor-avatar.speaking {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    animation: shadowPulse 1.5s infinite;
+}
+
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+}
+  
+  .doctor-details h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: white;
+  }
+  
+  .doctor-details p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+  }
+  
+  .header-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .gender-selector {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem;
+    border-radius: 8px;
+  }
+  
+  .gender-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .gender-button.active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .video-toggle {
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .video-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  .video-toggle.active {
+    background: #3b82f6;
+  }
+  
+  .end-chat-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    background: #e53e3e;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .end-chat-button:hover {
+    background: #c53030;
+    transform: translateY(-1px);
+  }
+  
+  /* Main content */
+  .psy-main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  
+  /* Video panels */
+  .video-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+  
+  .video-container {
+    position: relative;
+    border-radius: 8px;
+    background: #1a202c;
+    margin-top: 50px;
+  }
+  
+  .video-label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: white;
+  }
+  
+  /* Session info */
+  .session-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .session-info h3 {
+    color: #3b82f6;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .stress-bar-chart {
+  margin: 20px 0;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.chart-note {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stress-bar-chart h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+}
+
+.stress-bar-chart h3 svg {
+  margin-right: 5px;
+}
+  /* Coping strategies */
+  .coping-strategies {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .coping-strategies h3 {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .strategy-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .strategy-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .strategy-name {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .strategy-bar-wrapper {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .strategy-bar {
+    height: 100%;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    border-radius: 6px;
+    position: relative;
+    animation: growRight 1s ease forwards;
+    transform-origin: left;
+  }
+  
+  .strategy-value {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Mental Health Analysis */
+  .mental-health-analysis {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .mental-health-analysis h3 {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .health-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .health-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .category-name {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+  
+  .health-bar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .bar-wrapper {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .current-bar {
+    height: 100%;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    border-radius: 6px;
+    position: relative;
+    animation: growRight 1s ease forwards;
+    transform-origin: left;
+  }
+  
+  .target-wrapper {
+    background: transparent;
+    height: 20px;
+  }
+  
+  .target-marker {
+    position: absolute;
+    top: -8px;
+    width: 2px;
+    height: 20px;
+    background-color: #f59e0b;
+  }
+  
+  .target-value {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #f59e0b;
+    white-space: nowrap;
+  }
+  
+  .bar-value {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Mental Health Score */
+  .mental-health-score {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .mental-health-score h3 {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .score-value {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .score-bar-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .score-bar {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+  }
+  
+  /* Chat section */
+  .chat-section {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .messages-container {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 30px;
+  }
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .message.psychiatrist .message-icon {
+    margin-right: 10px;
+  }
+  
+  .message.user .message-icon {
+    margin-left: 10px;
+  }
+  
+  .message-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .message {
+    max-width: 70%;
+    padding: 1rem;
+    border-radius: 12px;
+    position: relative;
+  }
+  
+  .message.user {
+    align-self: flex-end;
+    background: #2563eb;
+    color: white;
+  }
+  
+  .message.psychiatrist {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .message-content {
+    position: relative;
+  }
+  
+  .message-time {
+    position: absolute;
+    bottom: -1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    right: 0;
+  }
+  
+  .replay-voice {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .replay-voice:hover {
+    color: white;
+  }
+  
+  /* Input section */
+  .input-container {
+    padding:  1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .input-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .message-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 0.95rem;
+  }
+  
+  .message-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .mic-button,
+  .edit-button,
+  .send-button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mic-button:hover,
+  .edit-button:hover,
+  .send-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .mic-button.active {
+    background: #e53e3e;
+  }
+  
+  .edit-button.active {
+    background: #3b82f6;
+  }
+  
+  /* Export dialog */
+  .export-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .export-dialog {
+    background: #1e3a8a;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: slideUp 0.3s ease;
+  }
+  
+  .export-dialog h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .export-dialog p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+  }
+  
+  .export-dialog-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .export-yes,
+  .export-no {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .export-yes {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  .export-yes:hover {
+    background: #2563eb;
+  }
+  
+  .export-no {
+    background: #e53e3e;
+    color: white;
+  }
+  
+  .export-no:hover {
+    background: #c53030;
+  }
+  
+  /* Animations */
+  @keyframes growUp {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  
+  @keyframes growRight {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .video-container small{
+    margin-top: 50px;
+  }
+  /* Thinking indicator */
+  .thinking-indicator {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+  }
+  
+  .thinking-dots {
+    display: flex;
+    gap: 0.25rem;
+  }
+  
+  .thinking-dots span {
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+    animation: bounce 0.8s infinite;
+  }
+  
+  .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* AI response section */
+  .ai-response {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .ai-response h3 {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .ai-response p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1200px) {
+    .main-content {
+      grid-template-columns: 250px 1fr 250px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .main-content {
+      grid-template-columns: 200px 1fr 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .video-panel {
+      display: none;
+    }
+  
+    .chat-section {
+      height: calc(100vh - 140px);
+    }
+  
+    .consultation-header {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  
+    .header-controls {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  .video-feed{
+    max-width: 250px;
+    margin-left: 5px;
+  }

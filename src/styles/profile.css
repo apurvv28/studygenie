@@ -1,0 +1,248 @@
+/* General Body */
+:root {
+  --primary-color: #2196f3;
+  --secondary-color: #1976d2;
+  --background-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --transition-speed: 0.3s;
+  --header-height: 64px;
+  --sidebar-width: 250px;
+}
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.profile-container {
+  min-height: 100vh;
+  color: var(--text-light);
+  position: relative;
+  min-width: 100vw;
+}
+
+/* Animated background elements */
+.profile-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E");
+  background-size: 52px 52px;
+  background-position: 0 0, 26px 26px, 52px 0, 0 52px, 52px 52px;
+  opacity: 0.3;
+  z-index: 0;
+  animation: floatingIcons 30s linear infinite;
+}
+
+@keyframes floatingIcons {
+  0% {
+    background-position: 0% 0%, 24px 24px, 48px 0, 0 48px, 48px 48px;
+  }
+  100% {
+    background-position: 100% 100%, 124px 124px, 148px 100px, 100px 148px, 148px 148px;
+  }
+}
+
+/* Profile Box */
+.profile-box {
+  background-color: #212125;
+  opacity: 0.8;
+  border-radius: 15px;
+  padding: 40px;
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+  min-width: 800px;
+  margin-left: 350px;
+}
+
+
+.profile-header {
+  font-size: 40px;
+  color: #b1e7f9;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  font-weight: 700;
+  transition: color 0.3s ease-in-out;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.profile-header:hover {
+  color: #007acc;
+}
+
+.studygenie-logo {
+  max-height: 80px;
+  max-width: 250px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.studygenie-logo:hover {
+  transform: scale(1.1);
+}
+
+.profile-email {
+  font-size: 1.4rem;
+  color: #ccc;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.profile-email:hover {
+  color: #1d87f8;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-column label {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.profile-column input {
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #1e1e1e;
+  color: #fff;
+  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.profile-column input:focus {
+  border-color: #007bff;
+  background-color: #333;
+  outline: none;
+}
+
+.profile-column input::placeholder {
+  color: #888;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.update, .logout {
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.update:hover, .logout:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.logout {
+  background-color: #f41707;
+}
+
+.logout:hover {
+  background-color: #c71519;
+}
+
+/* Toast Message Styles */
+.ask-yes, .ask-no {
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.ask-yes {
+  background-color: #44a14a;
+  color: white;
+  margin: 30px;
+}
+
+.ask-no {
+  background-color: #f41707;
+  color: white;
+}
+
+.ask-yes:hover {
+  background-color: #2d8a2d;
+}
+
+.ask-no:hover {
+  background-color: #d71313;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-box {
+    padding: 20px;
+  }
+
+  .profile-header {
+    font-size: 30px;
+  }
+
+  .profile-column input {
+    font-size: 16px;
+  }
+
+  .studygenie-logo {
+    max-width: 200px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .update, .logout {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

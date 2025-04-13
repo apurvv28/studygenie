@@ -1,0 +1,179 @@
+
+/* Main Content */
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  justify-content: center; /* Ensures the content is centered horizontally */
+  align-items: center; /* Ensures the content is centered vertically */
+}
+
+.main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+  padding: 20px;
+  border-left: none; /* No border here */
+}
+
+/* Quiz Container (No Question Box) */
+.quiz-container {
+  width: 100%;
+  max-width: 800px;
+  height: 380px;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Increased font size for the question text */
+.quiz-question p {
+  font-size: 26px; /* Increased font size */
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.quiz-option {
+  display: block; /* Use flex to align content */
+  align-items: center; /* Center align radio buttons */
+  justify-content: flex-start; /* Align text to the left */
+  background-color: #444; /* Slightly lighter black for contrast */
+  color: #d1d1d1; /* Light gray text */
+  padding: 15px 15px; /* Adjusted padding for better size */
+  margin: 12px 0; /* Reduce spacing between options */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #555; /* Subtle border */
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 18px; /* Slightly smaller text */
+}
+
+.quiz-option input[type="radio"] {
+  margin-right: 10px; /* Space between radio button and text */
+  accent-color: #007bff; /* Set custom color for the radio button */
+}
+
+.quiz-option:hover {
+  background-color: #5a5a5a; /* Highlight background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+.quiz-option input[type="radio"]:checked + label {
+  font-weight: bold; /* Highlight selected option */
+  color: #fff; /* Make text white for better emphasis */
+}
+.quiz-option input {
+  margin-right: 10px;
+}
+
+/* Navigation Buttons */
+.quiz-navigation {
+  margin-top: 20px;
+}
+
+.quiz-navigation button {
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  border: none; /* Removed border */
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quiz-navigation button:hover {
+  background-color: #007acc;
+  transform: scale(1.05);
+}
+
+.quiz-navigation button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.quiz-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.quiz-modal-content {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  transform:scale(0.7);
+  animation:popUp 0.5s ease-out forwards;
+  width: 90%;  /* Responsive width */
+  max-width: 500px;  /* Limit width for larger screens */
+  border: 2px solid #333;  /* Border for the card effect */
+}
+
+.quiz-modal-button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.quiz-modal-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: visible;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes borderAppear {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: rgba(255, 255, 255, 0.2); /* Ensured border appears */
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

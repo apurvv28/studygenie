@@ -1,0 +1,234 @@
+/* Modal Container */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modal-container {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  max-width: 64rem;
+  width: 95%;
+  margin: auto;
+  position: relative;
+  border: 1px solid #333;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  max-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #333;
+  background-color: #242424;
+  flex-shrink: 0;
+}
+
+.modal-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.modal-control-btn {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+.modal-close {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #e5e5e5;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mm-modal-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Loading State */
+.modal-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #333;
+  border-top: 4px solid #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  color: #e5e5e5;
+  font-size: 1rem;
+}
+
+/* Visual Guide */
+.visual-guide {
+  background: #242424;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.concept-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #1a1a1a;
+}
+
+.theory-content {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.theory-text {
+  color: #e5e5e5;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.theory-text p {
+  margin-bottom: 1rem;
+}
+
+.theory-text ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.theory-text li {
+  margin-bottom: 0.5rem;
+}
+
+/* Exam Cheats */
+.exam-cheats {
+  background: #242424;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.exam-cheats-title {
+  color: #e5e5e5;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.cheats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.cheat-card {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 1.25rem;
+  position: relative;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.cheat-card:hover {
+  transform: translateY(-2px);
+  border-color: #6366f1;
+}
+
+.cheat-number {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 24px;
+  height: 24px;
+  background: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.cheat-text {
+  color: #e5e5e5;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animation for content appearance */
+.modal-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,94 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1e1e2f;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+  background-color: #2a2a3c;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  width: 800px;
+  max-width: 95%;
+  text-align: center;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form fieldset {
+  border: 2px solid #00bcd4; /* Blue border */
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.login-form legend {
+  color: #00bcd4; /* Blue color */
+  font-size: 1.2em;
+  padding: 0 10px;
+}
+
+.login-form label {
+  margin: 10px 0 5px;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.login-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00bcd4; /* Blue color */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* New Student Section */
+.new-student {
+  margin-top: 20px;
+}
+
+.new-student img {
+  width: 100px;
+  height: auto;
+}
+
+.new-student p {
+  margin: 10px 0;
+}
+
+.new-student .enroll-now {
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+.new-student .enroll-now:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}

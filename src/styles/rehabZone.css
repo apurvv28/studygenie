@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #82b8f8;
+    --background-color: #f0f7ff;
+    --text-color: #2c3e50;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: #fff;
+  }
+  .container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+  }
+  
+  .container::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+  }
+  
+  .back-icon{
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 1450px;
+    color: #fff;
+  }
+  .back-icon:hover{
+    color: #888;
+    transform: scale(1.1) ease;
+  }
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #82b8f8;
+    --background-color: #f0f7ff;
+    --text-color: #2c3e50;
+  }
+  
+  .container {
+    min-width: 1450px;
+    max-height: 750px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 2;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 4rem;
+  }
+  
+  .title h1{
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    color: #999;
+    margin-bottom: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .floating-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+  
+  .bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+  }
+  
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .game-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .game-icon {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+  
+  .game-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .game-title {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .game-description {
+    color: #999;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .play-button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .games-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .game-card {
+      padding: 1.5rem;
+    }
+    
+    .game-image {
+      width: 150px;
+      height: 150px;
+    }
+  }

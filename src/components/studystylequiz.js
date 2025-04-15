@@ -118,7 +118,7 @@ export default function Page() {
       setError(null);
   
       try {
-        const response = await axios.post('http://localhost:8000/api/predictLearningStyle', { responses });
+        const response = await axios.post('https://studygenie-py-2.onrender.com/api/predictLearningStyle', { responses });
         const { prediction } = response.data;
         await storeStudyStyle();
         setPrediction(prediction);

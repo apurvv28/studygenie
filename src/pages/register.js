@@ -37,7 +37,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('http://localhost:5000/register', data);
+      const response = await axios.post('https://studygenie-mongodb1.onrender.com/register', data);
       console.log('Registration successful:', response.data);
       toast.success('Registration successful!', {
         position: "top-right",

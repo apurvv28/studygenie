@@ -12,7 +12,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     // Perform login logic here
     // For example, you can make an API call to your backend to authenticate the user
-    fetch('http://localhost:5000/login', {
+    fetch('https://studygenie-mongodb1.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

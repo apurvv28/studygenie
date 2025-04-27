@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Heart, Target, Brain, Coffee } from 'lucide-react';
-import './anxiety.css';
+import { ArrowLeft, Brain, Target } from 'lucide-react';
+import AnxietyMonster from '../anxiety/AnxietyMonster';
+import '../anxiety/anxiety.css';
 
 interface Task {
   id: number;
@@ -84,6 +85,7 @@ function AnxietyMonsterGame() {
   const [currentThought, setCurrentThought] = useState("");
   const [localTasks, setLocalTasks] = useState(tasks);
   const [localGoals, setLocalGoals] = useState(dailyGoals);
+  const [takingDamage, setTakingDamage] = useState(false);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -101,9 +103,15 @@ function AnxietyMonsterGame() {
     setTimeout(() => setCurrentThought(""), 3000);
   };
 
+  const handleDamage = () => {
+    setTakingDamage(true);
+    setTimeout(() => setTakingDamage(false), 500);
+  };
+
   const completeTask = (taskId: number) => {
     setLocalTasks(prev => prev.map(task => {
       if (task.id === taskId && !task.completed) {
+        handleDamage();
         setMonsterHealth(health => Math.max(0, health - task.points));
         showMindfulThought();
         return { ...task, completed: true };
@@ -115,6 +123,7 @@ function AnxietyMonsterGame() {
   const completeGoal = (goalId: number) => {
     setLocalGoals(prev => prev.map(goal => {
       if (goal.id === goalId && !goal.completed) {
+        handleDamage();
         setMonsterHealth(health => Math.max(0, health - goal.impact));
         showMindfulThought();
         return { ...goal, completed: true };
@@ -123,23 +132,8 @@ function AnxietyMonsterGame() {
     }));
   };
 
-  const monsterVariants = {
-    idle: {
-      scale: [1, 1.05, 1],
-      rotate: [-1, 1, -1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-      },
-    },
-    damage: {
-      scale: 0.9,
-      rotate: [-5, 5, -5, 5, 0],
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
+    <body className="anxiety-monster-body">
     <div className="container-anxiety">
       <button 
         onClick={() => navigate('/rehabzone')}
@@ -149,29 +143,23 @@ function AnxietyMonsterGame() {
         <span>Back to Rehab Zone</span>
       </button>
 
-      <div className="content">
+      <div className="monster-content">
         <motion.div 
-          className="header"
+          className="monster-header"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="title-anxiety">
+          <h1 className="monster-title-anxiety">
             Destroy the Anxiety Monster
           </h1>
-          <p className="subtitle-anxiety">
+          <p className="monster-subtitle-anxiety">
             Complete mindful tasks to weaken the monster before it grows too strong
           </p>
         </motion.div>
 
         <div className="monster-container">
-          <motion.div
-            className="monster"
-            style={{
-              backgroundColor: `hsl(${280 - (monsterHealth * 2.8)}, 70%, 50%)`,
-            }}
-            variants={monsterVariants}
-            animate={monsterHealth < 100 ? "damage" : "idle"}
-          />
+          <AnxietyMonster health={monsterHealth} takingDamage={takingDamage} />
+          
           <div className="health-bar-container">
             <motion.div
               className="health-bar"
@@ -260,6 +248,7 @@ function AnxietyMonsterGame() {
         </div>
       </div>
     </div>
+    </body>
   );
 }
 
